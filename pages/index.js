@@ -7,23 +7,11 @@ import { ConnectWallet, Web3Button, ThirdwebNftMedia, useAddress, useContract } 
 import * as THREE from "three";
 import NET from "vanta/dist/vanta.fog.min";
 import { useEffect,  useState, useRef } from "react";
-
 import {BsGithub} from 'react-icons/bs';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-
-    // Connect to your NFT contract
-    // const { contract } = useContract("{{contract_address}}");
-    // Load the NFT metadata from the contract using a hook
-    // const { data: nft, isLoading, error } = useNFT(contract, "0");
-
-    // Render the NFT onto the UI
-    // if (isLoading) return <div>Loading...</div>;
-    // if (error || !nft) return <div>NFT not found</div>;
-
-
 
     const [vantaEffect, setVantaEffect] = useState(0);
     const vantaRef = useRef(null);
@@ -49,7 +37,7 @@ export default function Home() {
       }
 
       return () => {
-        if (vantaEffect) vantaEffect;
+        if (vantaEffect) vantaEffect.destroy();
       };
     }, [vantaEffect]);
 
@@ -93,9 +81,11 @@ export default function Home() {
               className='my-10 px-10'
             />
 
+            {address && (
               <button className="bg-gradient-to-r from-gray-700 to-indigo-900 hover:from-indigo-900 hover:to-gray-700 text-white py-2 px-4 rounded">
-             Create social identity
-             </button>
+               Create social identity
+              </button>
+            )}
 
             </div>
 
