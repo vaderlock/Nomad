@@ -1,3 +1,5 @@
+![Nomad-removebg-preview](https://user-images.githubusercontent.com/100380634/229355887-3e95dd89-144f-4612-a4fd-44475efbbf38.png)
+
 # Project Overview
 
 #### Our decentralized application aims to revolutionize the way individuals represent themselves on the web3 by enabling them to own their social identity with the use of cross chain NFTs. Instead of relying on multiple wallet addresses, our platform empowers users to hold a unique NFT that includes their username, profile picture, and bio. With this approach, users can effortlessly showcase their web3 presence across various platforms, while maintaining complete control over their personal information. Our platform represents a significant step towards a more secure, private, and user-centric web3 experience.
