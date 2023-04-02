@@ -35,3 +35,17 @@ border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
+.custom-web3-button {
+  background-image: linear-gradient(to right, #37367b, #716b94)!important;
+  background-color: #37367b !important; /* added !important */
+  color: #FFF !important;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.custom-web3-button:hover {
+  background-image: linear-gradient(to right, #716b94, #37367b) !important;
+  color: #FFF !important;
+  background-color: #716b94 !important; /* added !important */
+}
+

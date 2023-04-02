@@ -94,7 +94,7 @@ export default function Home() {
           <div className="grid grid-cols-1 text-center mt-10 mx-5 text-center m-auto">
             <div className="max-w-md m-auto">
 
-              <h1 className="text-3xl font-bold pb-10 text-white">Nomad</h1>
+              {/* <h1 className="text-3xl font-bold pb-10 text-white">Nomad</h1> */}
 
               <div className='grid grid-cols-1 gap-10'>
 
@@ -105,9 +105,15 @@ export default function Home() {
               />
 
               {address && (
-                <button className="bg-gradient-to-r from-gray-700 to-indigo-900 hover:from-indigo-900 hover:to-gray-700 text-white py-2 px-4 rounded">
-                Create social identity
-                </button>
+
+                <Web3Button
+                contractAddress="0xb413df01580659F671471956e9D2fAe989d1dcd3"
+                action={(contract) => contract.erc721.claim(1)}
+                className="custom-web3-button"
+              >
+                Create Social Identity
+              </Web3Button>
+
               )}
 
               </div>
@@ -115,7 +121,7 @@ export default function Home() {
           {address && (
             <div className="my-10 text-white">
               <label htmlFor="txHash" className="block mb-2">
-                Enter transaction hash:
+                Enter a transaction hash to see its status
               </label>
               <div className="flex items-center">
                 <input
@@ -139,7 +145,7 @@ export default function Home() {
                   )}
                 </div>
               ) : (
-                <p className="mt-4">Enter a transaction hash to see its status</p>
+                <p className="mt-4">TX HASH STATUS</p>
               )}
             </div>
           )}
@@ -155,7 +161,7 @@ export default function Home() {
            
             <Image className="pr-5" src="/axelar.png" alt="logo" width={100} height={140} />
      
-            
+
 
             </div>
         
@@ -186,16 +192,6 @@ export default function Home() {
       >
         Button
 
-      </Web3Button> */}
-
-      {/* <Web3Button
-        contractAddress="0x..."
-        action={(contract) => console.log(contract)} // Logic to execute when clicked
-        onSubmit={() => console.log("Transaction submitted")} //Callback function to be run after the user has confirmed the transaction.
-        onSuccess={(result) => alert("Success!")} //Callback function to be run when the contract method call is successful.
-        onError={(error) => alert("Something went wrong!")} //Callback function to be run when the contract method call fails.
-      >
-        Create Social Profile
       </Web3Button> */}
 
       {/* <ThirdwebNftMedia 
