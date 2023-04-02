@@ -1,9 +1,0 @@
-{
-  "name": "hardhat-project",
-  "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^2.0.2"
-  },
-  "dependencies": {
-    "@thirdweb-dev/contracts": "^3.4.5"
-  }
-}
