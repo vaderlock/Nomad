@@ -83,15 +83,15 @@ export default function Home() {
 
       <div className=" min-h-screen bg-cover" ref={vantaRef}>
 
-        <nav className='fixed z-20'>
+        <nav className='fixed z-20 '>
             <Image src="/Nomad.png" alt="logo" width={200} height={200} />
         </nav>
 
         <main className="flex flex-col w-full flex-1 items-center justify-between px-20 h-screen text-center" >
     
 
-        <div className='items-center justify-center m-auto'>
-          <div className="grid grid-cols-1 text-center pt-40 mx-5 text-center m-auto">
+        <div className='items-center justify-center m-auto glass pt-30'>
+          <div className="grid grid-cols-1 text-center mt-10 mx-5 text-center m-auto">
             <div className="max-w-md m-auto">
 
               <h1 className="text-3xl font-bold pb-10 text-white">Nomad</h1>
@@ -123,7 +123,7 @@ export default function Home() {
                   type="text"
                   value={txHash}
                   onChange={handleTxHashChange}
-                  className="flex-1 mr-5 px-2 py-2 border rounded-lg"
+                  className="flex-1 mr-5 px-2 py-2 border rounded-lg text-black"
                 />
 
               </div>
@@ -147,9 +147,22 @@ export default function Home() {
             <div className="my-10 text-white">
                 <WalletAddress address={address} />
             </div>
+            <div className='grid grid-cols-4 justify-center items-center align-center text-center mx-auto gap-0'>
+              <h1>Powered by: </h1>
+            <Image className="ml-5" src="/third.png" alt="logo" width={200} height={200} />
+            <h1 className='pl-5'>and </h1>
+         
+           
+            <Image className="pr-5" src="/axelar.png" alt="logo" width={100} height={140} />
+     
+            
+
+            </div>
         
+         
             </div>
           </div>
+      
         </div>
 
 
@@ -161,7 +174,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="my-10 ">
+        <div className="my-5 ">
         <p className='text-center'>Copyright &copy; 2023 Nomad. All Rights Reserved</p>
         </div>
 
