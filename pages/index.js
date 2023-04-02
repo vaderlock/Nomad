@@ -8,10 +8,25 @@ import * as THREE from "three";
 import NET from "vanta/dist/vanta.fog.min";
 import { useEffect,  useState, useRef } from "react";
 import {BsGithub} from 'react-icons/bs';
+import { AxelarGMPRecoveryAPI, Environment } from '@axelar-network/axelarjs-sdk';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const [status, setStatus] = useState(null);
+  const txHash = "0xfb6fb85f11496ef58b088116cb611497e87e9c72ff0c9333aa21491e4cdd397a";
+
+  useEffect(() => {
+    async function fetchStatus() {
+      const sdk = new AxelarGMPRecoveryAPI({
+        environment: Environment.TESTNET,
+      });
+      const txStatus = await sdk.queryTransactionStatus(txHash);
+      setStatus(txStatus);
+    }
+    fetchStatus();
+    }, [txHash]);
 
     const [vantaEffect, setVantaEffect] = useState(0);
     const vantaRef = useRef(null);
@@ -57,20 +72,20 @@ export default function Home() {
         <title>Nomad</title>
         <meta name="description" content="Built for EasyA x HBC Hackathon" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/sword.png" />
       </Head>
       
       <nav className='fixed z-20'>
-          <Image src="/../public/Nomad.png" alt="logo" width={200} height={200} />
+          <Image src="/Nomad.png" alt="logo" width={200} height={200} />
       </nav>
 
       <main className="flex flex-col w-full flex-1 items-center justify-between px-20 min-h-full h-screen text-center" ref={vantaRef}>
-
    
 
        <div className='items-center justify-center m-auto'>
          <div className="grid grid-cols-1 text-center pt-40 mx-5 text-center m-auto">
           <div className="max-w-md m-auto">
+
             <h1 className="text-3xl font-bold pb-10 text-white">Nomad</h1>
 
             <div className='grid grid-cols-1 gap-10'>
@@ -88,10 +103,27 @@ export default function Home() {
             )}
 
             </div>
-
-            <div className="my-10 text-white">
+            
+          <div className="my-10 text-white">
+            {status ? (
+              <div>
+                <p>Status: {status.status}</p>
+                {status.gasPaidInfo && (
+                  <p>Gas Paid Status: {status.gasPaidInfo.status}</p>
+                )}
+                {status.errors && <p>Errors: {JSON.stringify(status.errors)}</p>}
+                {status.callData && (
+                  <p>Call Data: {JSON.stringify(status.callData)}</p>
+                )}
+              </div>
+            ) : (
+              <p>Loading...</p>
+            )}
+          </div>
+          
+          <div className="my-10 text-white">
               <WalletAddress address={address} />
-            </div>
+          </div>
       
           </div>
         </div>
