@@ -1,11 +1,14 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { ConnectWallet, Web3Button, ThirdwebNftMedia, useAddress, useContract } from "@thirdweb-dev/react";
 import * as THREE from "three";
 import NET from "vanta/dist/vanta.fog.min";
 import { useEffect,  useState, useRef } from "react";
+
+import {BsGithub} from 'react-icons/bs';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -82,7 +85,7 @@ export default function Home() {
           <div className="max-w-md m-auto">
             <h1 className="text-3xl font-bold pb-10 text-white">Nomad</h1>
 
-            <div className='grid grid-rows-1 gap-10'>
+            <div className='grid grid-cols-1 gap-10'>
 
             <ConnectWallet
               theme="dark"
@@ -90,7 +93,7 @@ export default function Home() {
               className='my-10 px-10'
             />
 
-            <button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white py-2 px-4 rounded">
+              <button className="bg-gradient-to-r from-gray-700 to-indigo-900 hover:from-indigo-900 hover:to-gray-700 text-white py-2 px-4 rounded">
              Create social identity
              </button>
 
@@ -104,9 +107,20 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="my-10">
+
+      <div className="my-10 ">
+      <Link href="https://github.com/vaderlock/Nomad"
+        target="_blank" 
+        rel="noopener noreferrer">
+          <BsGithub size={50}/>
+        </Link>
+       
+    
  
-    </div>
+      </div>
+      <div className="my-10 ">
+      <p className='text-center'>Copyright &copy; 2023 Nomad. All Rights Reserved</p>
+      </div>
 
 
 
